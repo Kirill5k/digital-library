@@ -14,7 +14,7 @@ final class Http[F[_]: Async] private (
     private val health: Health[F]
 ) {
 
-  private val routes: HttpRoutes[F] = health.controller.routes
+  private val routes: HttpRoutes[F] = health.controller.routes(null)
 
   private val middleware: HttpRoutes[F] => HttpRoutes[F] = { (http: HttpRoutes[F]) => AutoSlash(http) }
     .andThen((http: HttpRoutes[F]) => CORS.policy.withAllowOriginAll.withAllowCredentials(false).apply(http))

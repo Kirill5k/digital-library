@@ -19,7 +19,7 @@ class HealthControllerSpec extends ControllerSpec {
       val controller = Ref.of[IO, Instant](ts).map(t => new HealthController[IO](t))
 
       val request  = Request[IO](uri = uri"/health/status", method = Method.GET, headers = Headers(Raw(CIString("foo"), "bar")))
-      val response = controller.flatMap(_.routes.orNotFound.run(request))
+      val response = controller.flatMap(_.routes(sessMiddleware(None)).orNotFound.run(request))
 
       verifyJsonResponse(response, Status.Ok, Some(s"""{"startupTime":"$ts"}"""))
     }

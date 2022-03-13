@@ -10,9 +10,10 @@ import java.time.Instant
 import java.time.temporal.ChronoField
 
 object Sessions {
-  lazy val sid = SessionId(ObjectId().toHexString)
-  lazy val ts  = Instant.now().`with`(ChronoField.MILLI_OF_SECOND, 0)
-  lazy val ip  = IpAddress.fromString("127.0.0.1").get
+  lazy val sid  = SessionId(ObjectId().toHexString)
+  lazy val sid2 = SessionId(ObjectId().toHexString)
+  lazy val ts   = Instant.now().`with`(ChronoField.MILLI_OF_SECOND, 0)
+  lazy val ip   = IpAddress.fromString("127.0.0.1").get
 
   lazy val sa           = SessionActivity(ip, ts)
   lazy val sess         = Session(sid, Users.uid1, ts, true, SessionStatus.Authenticated, Some(sa))
