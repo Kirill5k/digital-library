@@ -11,6 +11,7 @@ object Dependencies {
     val logback    = "1.2.11"
     val log4cats   = "2.2.0"
     val tapir      = "0.20.1"
+    val refined    = "0.9.28"
 
     val scalaTest = "3.2.11"
     val mockito   = "3.2.10.0"
@@ -39,8 +40,9 @@ object Dependencies {
       val core    = "io.circe" %% "circe-core"    % Versions.circe
       val generic = "io.circe" %% "circe-generic" % Versions.circe
       val parser  = "io.circe" %% "circe-parser"  % Versions.circe
+      val refined = "io.circe" %% "circe-refined" % Versions.circe
 
-      val all = Seq(core, generic, parser)
+      val all = Seq(core, generic, parser, refined)
     }
 
     object sttp {
@@ -63,6 +65,11 @@ object Dependencies {
       val blazeServer = "org.http4s" %% "http4s-blaze-server" % Versions.http4s
     }
 
+    object refined {
+      val core = "eu.timepit" %% "refined" % Versions.refined
+      val all  = Seq(core)
+    }
+
     val scalaTest = "org.scalatest"     %% "scalatest"   % Versions.scalaTest
     val mockito   = "org.scalatestplus" %% "mockito-3-4" % Versions.mockito
   }
@@ -77,7 +84,8 @@ object Dependencies {
       Libraries.circe.all ++
       Libraries.tapir.all ++
       Libraries.logging.all ++
-      Libraries.sttp.all
+      Libraries.sttp.all ++
+      Libraries.refined.all
 
   val test = Seq(
     Libraries.scalaTest           % Test,
