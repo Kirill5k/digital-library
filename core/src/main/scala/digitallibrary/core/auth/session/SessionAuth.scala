@@ -8,7 +8,9 @@ import cats.syntax.applicative.*
 import cats.syntax.functor.*
 import io.circe.generic.auto.*
 import org.bson.types.ObjectId
+import digitallibrary.core.common.http.ErrorResponse
 import org.http4s.{AuthedRoutes, HttpDate, Request, ResponseCookie}
+import org.http4s.dsl.Http4sDsl
 import org.http4s.circe.CirceEntityCodec.*
 import org.http4s.server.AuthMiddleware
 

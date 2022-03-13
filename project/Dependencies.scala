@@ -64,10 +64,11 @@ object Dependencies {
     }
 
     object http4s {
+      val dsl         = "org.http4s" %% "http4s-dsl"          % Versions.http4s
       val blazeServer = "org.http4s" %% "http4s-blaze-server" % Versions.http4s
-      val circe  = "org.http4s" %% "http4s-circe"        % Versions.http4s
+      val circe       = "org.http4s" %% "http4s-circe"        % Versions.http4s
 
-      val all = Seq(blazeServer, circe)
+      val all = Seq(blazeServer, circe, dsl)
     }
 
     object refined {
