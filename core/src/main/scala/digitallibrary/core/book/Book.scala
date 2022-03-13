@@ -13,14 +13,10 @@ object BookId extends IdType[BookId]
 opaque type BookTitle = String
 object BookTitle extends IdType[BookTitle]
 
-opaque type BookAuthor = String
-object BookAuthor extends IdType[BookAuthor]
-
 final case class Book(
     id: BookId,
     userId: UserId,
     title: BookTitle,
-    author: Option[BookAuthor],
     categoryId: CategoryId,
     date: LocalDate,
     note: Option[String],
@@ -30,7 +26,6 @@ final case class Book(
 final case class CreateBook(
     userId: UserId,
     title: BookTitle,
-    author: Option[BookAuthor],
     categoryId: CategoryId,
     date: LocalDate,
     note: Option[String],

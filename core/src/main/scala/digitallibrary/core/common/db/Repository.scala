@@ -4,6 +4,7 @@ import cats.MonadError
 import cats.syntax.applicative.*
 import cats.syntax.applicativeError.*
 import com.mongodb.client.result.UpdateResult
+import digitallibrary.core.auth.user.UserId
 import mongo4cats.bson.ObjectId
 import mongo4cats.collection.operations.{Filter, Update}
 
@@ -25,6 +26,8 @@ trait Repository[F[_]] {
 
   private def idEqFilter(name: String, id: String): Filter = Filter.eq(name, ObjectId(id))
   protected def idEq(id: String): Filter                   = idEqFilter(Field.Id, id)
+  protected def userIdEq(aid: Option[UserId]): Filter      = idEqFilter(Field.UId, aid.map(_.value).orNull)
+  protected def userIdEq(aid: UserId): Filter              = idEqFilter(Field.UId, aid.value)
 
   protected def errorIfNull[A](error: Throwable)(res: A)(using F: MonadError[F, Throwable]): F[A] =
     Option(res).map(_.pure[F]).getOrElse(error.raiseError[F, A])

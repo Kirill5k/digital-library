@@ -12,12 +12,14 @@ object Dependencies {
     val log4cats   = "2.2.0"
     val tapir      = "0.20.1"
     val refined    = "0.9.28"
+    val bcrypt     = "4.3.0"
 
     val scalaTest = "3.2.11"
     val mockito   = "3.2.10.0"
   }
 
   object Libraries {
+    val bcrypt = "com.github.t3hnar" %% "scala-bcrypt" % Versions.bcrypt
 
     object mongo4cats {
       val core     = "io.github.kirill5k" %% "mongo4cats-core"     % Versions.mongo4cats
@@ -79,7 +81,8 @@ object Dependencies {
       Libraries.mongo4cats.core,
       Libraries.mongo4cats.circe,
       Libraries.pureconfig.core,
-      Libraries.http4s.blazeServer
+      Libraries.http4s.blazeServer,
+      Libraries.bcrypt.cross(CrossVersion.for3Use2_13)
     ) ++
       Libraries.circe.all ++
       Libraries.tapir.all ++
