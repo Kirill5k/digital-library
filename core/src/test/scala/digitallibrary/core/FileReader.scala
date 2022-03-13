@@ -1,4 +1,4 @@
-package io.github.kirill5k.template
+package digitallibrary.core
 
 import scala.io.Source
 

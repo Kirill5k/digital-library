@@ -1,8 +1,8 @@
-package io.github.kirill5k.template.health
+package digitallibrary.core.health
 
 import cats.effect.Async
 import cats.implicits.*
-import io.github.kirill5k.template.common.http.Controller
+import digitallibrary.core.common.http.Controller
 
 trait Health[F[_]]:
   def controller: Controller[F]

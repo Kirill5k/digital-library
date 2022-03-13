@@ -1,4 +1,4 @@
-package io.github.kirill5k.template
+package digitallibrary.core
 
 import cats.effect.IO
 import org.scalatest.matchers.must.Matchers

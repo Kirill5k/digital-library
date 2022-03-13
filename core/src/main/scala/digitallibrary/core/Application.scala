@@ -1,8 +1,8 @@
-package io.github.kirill5k.template
+package digitallibrary.core
 
 import cats.effect.{IO, IOApp}
-import io.github.kirill5k.template.common.config.AppConfig
-import io.github.kirill5k.template.health.Health
+import digitallibrary.core.common.config.AppConfig
+import digitallibrary.core.health.Health
 import org.typelevel.log4cats.Logger
 import org.typelevel.log4cats.slf4j.Slf4jLogger
 

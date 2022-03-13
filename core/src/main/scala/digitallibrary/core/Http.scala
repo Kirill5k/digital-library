@@ -1,12 +1,13 @@
-package io.github.kirill5k.template
+package digitallibrary.core
 
 import cats.Monad
 import cats.effect.Async
 import cats.implicits.*
-import io.github.kirill5k.template.health.Health
+import digitallibrary.core.health.Health
 import org.http4s.*
 import org.http4s.implicits.*
 import org.http4s.server.middleware.*
+
 import scala.concurrent.duration.*
 
 final class Http[F[_]: Async] private (
