@@ -65,6 +65,9 @@ object Dependencies {
 
     object http4s {
       val blazeServer = "org.http4s" %% "http4s-blaze-server" % Versions.http4s
+      val circe  = "org.http4s" %% "http4s-circe"        % Versions.http4s
+
+      val all = Seq(blazeServer, circe)
     }
 
     object refined {
@@ -81,14 +84,14 @@ object Dependencies {
       Libraries.mongo4cats.core,
       Libraries.mongo4cats.circe,
       Libraries.pureconfig.core,
-      Libraries.http4s.blazeServer,
       Libraries.bcrypt.cross(CrossVersion.for3Use2_13)
     ) ++
       Libraries.circe.all ++
       Libraries.tapir.all ++
       Libraries.logging.all ++
       Libraries.sttp.all ++
-      Libraries.refined.all
+      Libraries.refined.all ++
+      Libraries.http4s.all
 
   val test = Seq(
     Libraries.scalaTest           % Test,
